@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberEasy - Gaya Rambut Keren, Tanpa Ribet</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      'barber-blue': '#007BFF',
+                      'barber-blue-dark': '#0056b3',
+                      'barber-gray': {
+                          'light': '#F8F9FA',
+                          'medium': '#6c757d',
+                          'dark': '#343a40'
+                      },
+                  }
+              }
+          }
+      }
+    </script>
+</head>
+<body class="bg-white text-barber-gray-dark">
+
+    <!-- Kursor Kustom -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+
+    <!-- 1. Header (Navigasi Atas) -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 border-b border-gray-200 opacity-0">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="interactive-link">
+                <img src="gambar/logo_bbeasy.png" alt="Logo BarberEasy" class="h-12 w-auto">
+            </a>
+            
+            <!-- Menu Navigasi (Desktop) -->
+            <ul class="hidden md:flex items-center space-x-8 font-semibold">
+                <li><a href="#home" class="interactive-link text-barber-gray-medium hover:text-barber-blue smooth-transition">HOME</a></li>
+                <li><a href="#layanan" class="interactive-link text-barber-gray-medium hover:text-barber-blue smooth-transition">LAYANAN</a></li>
+                <li><a href="#booking" class="interactive-link text-barber-gray-medium hover:text-barber-blue smooth-transition">BOOKING</a></li>
+                <li><a href="#gallery" class="interactive-link text-barber-gray-medium hover:text-barber-blue smooth-transition">GALLERY</a></li>
+            </ul>
+
+            <!-- Tombol Aksi -->
+            <a href="#booking" class="interactive-button hidden md:block bg-barber-blue text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-barber-blue-dark hover:shadow-lg transform hover:-translate-y-0.5 smooth-transition">
+                BOOK NOW
+            </a>
+            
+            <!-- Tombol Menu (Mobile) -->
+            <button id="mobile-menu-button" class="interactive-button md:hidden text-barber-gray-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        
+        <!-- Menu Navigasi (Mobile) -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <ul class="flex flex-col space-y-4 font-semibold">
+                 <li><a href="#home" class="interactive-link block text-barber-gray-medium hover:text-barber-blue smooth-transition">HOME</a></li>
+                <li><a href="#layanan" class="interactive-link block text-barber-gray-medium hover:text-barber-blue smooth-transition">LAYANAN</a></li>
+                <li><a href="#booking" class="interactive-link block text-barber-gray-medium hover:text-barber-blue smooth-transition">BOOKING</a></li>
+                <li><a href="#gallery" class="interactive-link block text-barber-gray-medium hover:text-barber-blue smooth-transition">GALLERY</a></li>
+                <li>
+                    <a href="#booking" class="interactive-button block bg-barber-blue text-white text-center font-bold py-3 px-6 rounded-lg shadow-md hover:bg-barber-blue-dark mt-4">
+                        BOOK NOW
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Hero Section -->
+        <section id="home" class="bg-barber-gray-light overflow-hidden">
+            <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
+                <!-- Teks Hero -->
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 id="hero-title" class="text-4xl md:text-6xl font-extrabold text-barber-gray-dark leading-tight mb-4 opacity-0">
+                        Gaya Rambut Keren, <span class="text-barber-blue">Tanpa Ribet.</span>
+                    </h1>
+                    <p id="hero-subtitle" class="text-lg text-barber-gray-medium mb-8 opacity-0">
+                        Pesan online, potong langsung - hanya di BarberEasy. Pengalaman cukur modern yang cepat dan mudah.
+                    </p>
+                    <a href="#booking" id="hero-button" class="interactive-button bg-barber-blue text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-barber-blue-dark hover:shadow-xl transform hover:-translate-y-1 smooth-transition inline-block opacity-0">
+                        Booking Sekarang
+                    </a>
+                </div>
+                <!-- Ilustrasi Hero -->
+                <div id="hero-illustration-wrapper" class="md:w-1/2 mt-12 md:mt-0 flex justify-center opacity-0">
+                    <div id="hero-illustration" data-lag="0.1">
+                        <img src="gambar/logo_dashb.png" x="50" y="50" height="400" width="400"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="barber-pole-divider"></div>
+
+        <!-- 6. Daftar Layanan -->
+        <section id="layanan" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-3xl font-bold mb-2">Layanan Profesional Kami</h2>
+                <p class="section-subtitle text-barber-gray-medium mb-12">Pilih layanan terbaik untuk menunjang penampilan Anda.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Kartu Layanan 1: Potong Rambut -->
+                    <div class="interactive-card bg-white rounded-lg shadow-lg p-8 text-center border border-gray-100">
+                        <img src="gambar/potongrambut.png" alt="Ikon Potong Rambut" class="h-20 w-20 rounded-full object-cover mx-auto mb-6">
+                        <h3 class="text-xl font-bold mb-2">Potong Rambut</h3>
+                        <p class="text-barber-gray-medium">Gaya rambut modern dan klasik sesuai keinginan Anda.</p>
+                    </div>
+                    <!-- Kartu Layanan 2: Cukur Jenggot -->
+                    <div class="interactive-card bg-white rounded-lg shadow-lg p-8 text-center border border-gray-100">
+                        <img src="gambar/cukur_jenggot.png" alt="Ikon Cukur Jenggot" class="h-20 w-20 rounded-full object-cover mx-auto mb-6">
+                        <h3 class="text-xl font-bold mb-2">Cukur Jenggot</h3>
+                        <p class="text-barber-gray-medium">Teknik presisi untuk hasil yang bersih dan rapi.</p>
+                    </div>
+                    <!-- Kartu Layanan 3: Hair SPA -->
+                    <div class="interactive-card bg-white rounded-lg shadow-lg p-8 text-center border border-gray-100">
+                        <img src="gambar/spa.png" alt="Ikon Hair SPA" class="h-20 w-20 rounded-full object-cover mx-auto mb-6">
+                        <h3 class="text-xl font-bold mb-2">Hair SPA</h3>
+                        <p class="text-barber-gray-medium">Perawatan lengkap untuk menutrisi rambut Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="barber-pole-divider"></div>
+
+        <!-- 4. Form Booking & Info Section -->
+        <section id="booking" class="bg-barber-gray-light py-24">
+             <div class="container mx-auto px-6">
+                <h2 class="section-title text-3xl font-bold mb-12 text-center">Booking & Info</h2>
+                <div class="grid md:grid-cols-2 gap-16 items-start">
+                    <!-- Form Booking -->
+                    <div>
+                        <h3 class="font-bold text-2xl mb-6">Booking Online</h3>
+                        <form id="booking-form" class="space-y-6">
+                            <!-- Fields -->
+                            <div>
+                                <label for="nama" class="font-semibold block mb-2">Nama Lengkap</label>
+                                <input type="text" id="nama" name="nama" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-barber-blue" placeholder="Contoh: Budi Santoso" required>
+                            </div>
+                            <div>
+                                <label for="telepon" class="font-semibold block mb-2">Nomor Telepon</label>
+                                <input type="tel" id="telepon" name="telepon" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-barber-blue" placeholder="Contoh: 081234567890" required>
+                            </div>
+                            <div>
+                                <label for="tanggal" class="font-semibold block mb-2">Tanggal & Waktu</label>
+                                <input type="datetime-local" id="tanggal" name="tanggal" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-barber-blue" required>
+                            </div>
+                            <div>
+                                <label for="pilih-layanan" class="font-semibold block mb-2">Pilih Layanan</label>
+                                <select id="pilih-layanan" name="pilih-layanan" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-barber-blue bg-white" required>
+                                    <option value="">-- Pilih salah satu --</option>
+                                    <option value="Potong Rambut">Potong Rambut</option>
+                                    <option value="Cukur Jenggot">Cukur Jenggot</option>
+                                    <option value="Hair SPA">Hair SPA</option>
+                                    <option value="Paket Lengkap">Paket Lengkap (Semua layanan)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="interactive-button w-full bg-green-500 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-green-600 transform hover:-translate-y-1 smooth-transition flex items-center justify-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                                Kirim Jadwal via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Info Barbershop -->
+                    <div class="space-y-8">
+                        <h3 class="font-bold text-2xl mb-6">Info Barbershop</h3>
+                        <!-- Info items -->
+                         <div class="flex items-start gap-4">
+                            <div class="bg-barber-blue/10 text-barber-blue rounded-full h-12 w-12 flex-shrink-0 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Alamat</h4>
+                                <p class="text-barber-gray-medium">Jln. Samping Desa Konoha, No. 12, Wakanda</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start gap-4">
+                            <div class="bg-barber-blue/10 text-barber-blue rounded-full h-12 w-12 flex-shrink-0 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Jam Buka</h4>
+                                <p class="text-barber-gray-medium">Setiap Hari, 09:00 - 21:00 WIB</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start gap-4">
+                            <div class="bg-barber-blue/10 text-barber-blue rounded-full h-12 w-12 flex-shrink-0 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Media Sosial</h4>
+                                <a href="#" class="interactive-link text-barber-gray-medium hover:text-barber-blue">Instagram / TikTok: @BarberEasy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <div class="barber-pole-divider"></div>
+
+        <!-- 3. Testimoni Pelanggan / Gallery -->
+        <section id="gallery" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-3xl font-bold mb-2">Apa Kata Pelanggan Kami?</h2>
+                <p class="section-subtitle text-barber-gray-medium mb-12">Kami bangga melayani dan membuat pelanggan puas.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Testimoni 1 -->
+                    <div class="interactive-card bg-barber-gray-light rounded-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <img src="gambar/testi1.jpeg" alt="Foto Pelanggan 1" class="w-16 h-16 rounded-full mr-4 border-2 border-barber-blue">
+                            <div>
+                                <h4 class="font-bold text-lg">Ahmad Susanto</h4>
+                                <div class="flex text-yellow-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-barber-gray-medium text-left">"Pelayanannya cepat dan hasilnya sangat memuaskan. Booking online sangat membantu, jadi tidak perlu antre lagi. Pasti kembali!"</p>
+                    </div>
+                    <!-- Testimoni 2 -->
+                     <div class="interactive-card bg-barber-gray-light rounded-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <img src="gambar/testi2.jpeg" alt="Foto Pelanggan 2" class="w-16 h-16 rounded-full mr-4 border-2 border-barber-blue">
+                            <div>
+                                <h4 class="font-bold text-lg">Budhi  Rona</h4>
+                                <div class="flex text-yellow-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-barber-gray-medium text-left">"Tempatnya bersih, nyaman, dan barbernya ramah. Dikasih masukan gaya rambut yang cocok. Sangat direkomendasikan!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="barber-pole-divider"></div>
+
+        <!-- 7. Tim Barber -->
+        <section id="tim" class="bg-white py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-3xl font-bold mb-2">Tim Barber Profesional Kami</h2>
+                <p class="section-subtitle text-barber-gray-medium mb-12">Bertemu dengan para ahli di bidangnya.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Barber 1 -->
+                    <div class="interactive-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                        <img src="gambar/alex.jpeg" alt="Foto Barber 1" class="w-full h-80 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">David Lee</h3>
+                            <p class="text-barber-blue font-semibold">Pengalaman 8 Tahun</p>
+                            <p class="text-barber-gray-medium mt-2">Spesialis gaya rambut klasik dan modern fade.</p>
+                        </div>
+                    </div>
+                    <!-- Barber 2 -->
+                    <div class="interactive-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                        <img src="gambar/stave1.jpeg" alt="Foto Barber 2" class="w-full h-80 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Michael Chen</h3>
+                            <p class="text-barber-blue font-semibold">Pengalaman 5 Tahun</p>
+                            <p class="text-barber-gray-medium mt-2">Ahli dalam perawatan jenggot dan hair tattoo.</p>
+                        </div>
+                    </div>
+                    <!-- Barber 3 -->
+                    <div class="interactive-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                        <img src="gambar/john.jpeg" alt="Foto Barber 3" class="w-full h-80 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Alex Johnson</h3>
+                            <p class="text-barber-blue font-semibold">Pengalaman 6 Tahun</p>
+                            <p class="text-barber-gray-medium mt-2">Fokus pada hair spa dan gaya rambut panjang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-barber-gray-dark text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 BarberEasy. Semua Hak Cipta Dilindungi.</p>
+            <p class="text-sm text-barber-gray-medium mt-2">Didesain dengan ❤ untuk kemudahan Anda.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP (GreenSock Animation Platform) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
